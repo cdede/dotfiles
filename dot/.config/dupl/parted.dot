@@ -6,7 +6,7 @@ digraph G {
 		style=filled;
 		color=lightgrey;
 		node [style=filled,color=cyan];
-		a2 -> a3 -> a4 -> a6->a7;
+		a2 -> a3 -> a4 -> a5->a6->a7;
 		label = "/dev/sdan";
 	}
 
@@ -41,13 +41,13 @@ digraph G {
         a3 -> swap ;
         a4 ->livehd;
         a4 ->ext4;
+        a5 -> root ;
+	a5 -> btrfs;
+	a6 -> btrfs_autofs;
+        a6 ->backup;
+        a6 ->audio;
+        a6 ->video;
+        a6 ->document;
         a7 -> ext4;
         a7 -> home;
-	a6 -> btrfs;
-	a6 -> btrfs_autofs;
-        btrfs -> root ;
-        btrfs_autofs ->backup;
-        btrfs_autofs ->audio;
-        btrfs_autofs ->video;
-        btrfs_autofs ->document;
 }
