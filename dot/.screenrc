@@ -1,0 +1,8 @@
+escape ^B^B
+startup_message off
+bind 2 split
+bind o focus
+bind 1 only
+bind 0 remove
+hardstatus alwayslastline
+hardstatus string "%{= gb}%-Lw%{= .bc}%50> %n*%f %t%{= gb}%+Lw%< %{+ cb}%-= %c %d/%m/%Y"

@@ -1,0 +1,10 @@
+#!/bin/bash
+~/bin/loc_back.sh  -b  
+priv1=~/.priv
+backup=/media/backup/`whoami`
+priv2=$backup/private
+
+ls $priv2
+sleep 5
+rdiff-backup $priv1 $priv2
+rdiff-backup --remove-older-than 3W $priv2

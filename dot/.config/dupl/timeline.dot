@@ -1,0 +1,36 @@
+//dot -Tpng timeline.dot -o line.png
+digraph G {
+  bgcolor ="#009900";
+
+  Distribution -> Debian -> Archlinux;
+kernel ->"kernel26";
+mail->"mutt fdm procmail msmtp";
+  Browsers ->Chromium;
+  wm -> ratpoison->notion->i3->awesome->spectrwm;
+  lock ->xscreensaver -> slock->i3lock;
+  time -> openntpd;
+  "Login managers"->xdm->"startx vlock";
+  Torrents -> vuze ->aria2;
+  "Terminals"->"xterm screen";
+  "Text Editors" ->gvim;
+  shell ->bash->zsh;
+"PDF Viewers"->xpdf;
+"Image Viewers" -> feh;
+Monitors->conky;
+screenshot->imagemagick->scrot ;
+"Audio Players"->moc;
+"video Players"->smplayer->vlc;
+backup->duplicity;
+"launch"->"dmenu ";
+"password manager"->pwsafe->"gnome-keyring"->keepassx;
+"cloud"->wuala;
+
+
+mail->gmail;
+Browsers ->midori;
+ wm ->fluxbox->openbox;
+ "Terminals"->urxvt;
+"PDF Viewers"->djview4;
+"launch"->"xbindkeys";
+"cloud"->dropbox;
+}

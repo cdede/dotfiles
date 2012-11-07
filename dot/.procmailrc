@@ -1,0 +1,27 @@
+# Please check if all the paths in PATH are reachable, remove the ones that
+# are not.
+
+PATH=$HOME/bin:/usr/bin:/global/bin:/usr/ucb:/bin:/usr/local/bin:
+MAILDIR =	$HOME/.Mail	# You'd better make sure it exists
+DEFAULT =	$MAILDIR/local/
+LOGFILE =	$MAILDIR/local/from
+LOCKFILE=	$HOME/.lockmail
+
+			# This will create a local lockfile named todd.lock
+:0:			# *if* the condition matches
+* ^From.*thf
+todd
+
+LOCKFILE=$MAILDIR/whatever	# This will remove the global lockfile
+				# $HOME/.lockmail and the new lockfile
+				# will be $MAILDIR/whatever
+
+
+				# The next recipe will
+				# filter out all messages from "at"
+				# jobs and will put them in a terse format
+				# (only the date and the body) in
+				# a file called $MAILDIR/atjunk
+
+# Anything not delivered by now will go to $HOME/Mail/mbox
+# Using LOCKFILE=$HOME/Mail/mbox.lock

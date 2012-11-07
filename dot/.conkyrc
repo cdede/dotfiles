@@ -1,0 +1,10 @@
+out_to_console yes
+out_to_x no
+background no
+update_interval 59
+total_run_times 0
+use_spacer none
+
+TEXT 
+${cpu cpu1}% / ${loadavg } :: ${acpitemp}c :: $memperc% ($mem) :: ${downspeed eth0}K/s ${upspeed eth0}K/s :: ${time %a %b %d %I:%M%P}
+

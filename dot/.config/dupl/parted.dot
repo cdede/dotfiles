@@ -1,0 +1,53 @@
+// dot -Tpng  parted.dot -o line1.png
+digraph G {
+  bgcolor ="#009900";
+
+	subgraph cluster_0 {
+		style=filled;
+		color=lightgrey;
+		node [style=filled,color=cyan];
+		a2 -> a3 -> a4 -> a6->a7;
+		label = "/dev/sdan";
+	}
+
+	subgraph cluster_1 {
+		node [style=filled];
+		btrfs;
+                ext4;
+                autofs;
+                btrfs_autofs;
+		label = "type";
+		color=blue
+	}
+	subgraph cluster_2 {
+		style=filled;
+		color=lightgrey;
+		node [style=filled,color=yellow];
+		boot;
+		backup;
+                livehd;
+		root ;
+		swap;
+		home;
+                video;
+                audio;
+                document;
+		label = "name";
+	}
+
+	a2 -> boot;
+	a2 -> ext4;
+	a2 -> autofs;
+        a3 -> swap ;
+        a4 ->livehd;
+        a4 ->ext4;
+        a7 -> ext4;
+        a7 -> home;
+	a6 -> btrfs;
+	a6 -> btrfs_autofs;
+        btrfs -> root ;
+        btrfs_autofs ->backup;
+        btrfs_autofs ->audio;
+        btrfs_autofs ->video;
+        btrfs_autofs ->document;
+}
