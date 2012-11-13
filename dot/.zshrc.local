@@ -1,4 +1,4 @@
-alias rm='gvfs-trash'
+alias rm='trash'
 alias real_rm='/bin/rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
