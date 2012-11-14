@@ -1,8 +1,6 @@
 #!/bin/bash
-~/bin/loc_back.sh  -b  
 priv1=~/.priv
-backup=/media/backup/`whoami`
-priv2=$backup/
+priv2=/media/backup/`whoami`/
 
 ls $priv2
 sleep 3

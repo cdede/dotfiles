@@ -1,7 +1,6 @@
 #!/bin/bash
 ######
-cd ~
-~/bin/loc_back.sh -l -v 
+~/bin/loc_back.sh -l -v -b 
 priv1=~/.priv
 run-parts $priv1
 

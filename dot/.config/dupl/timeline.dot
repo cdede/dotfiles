@@ -27,7 +27,7 @@ backup->duplicity;
 
 
 mail->gmail;
-Browsers ->midori;
+Browsers ->firefox;
  wm ->fluxbox->openbox;
  "Terminals"->urxvt;
 "PDF Viewers"->djview4;
