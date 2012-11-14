@@ -6,7 +6,7 @@ digraph G {
 		style=filled;
 		color=lightgrey;
 		node [style=filled,color=cyan];
-		a2 -> a3 -> a4 -> a5->a6->a7;
+		a2 -> a3 ->a4-> a5->a6->a7;
 		label = "/dev/sdan";
 	}
 
@@ -14,8 +14,9 @@ digraph G {
 		node [style=filled];
 		btrfs;
                 ext4;
+                xfs;
                 autofs;
-                btrfs_autofs;
+                nilfs2;
 		label = "type";
 		color=blue
 	}
@@ -30,9 +31,6 @@ digraph G {
                 pkg;  //  /var/cache/pacman/pkg
 		swap;
 		home;
-                video;
-                audio;
-                document;
 		label = "name";
 	}
 
@@ -40,16 +38,14 @@ digraph G {
 	a2 -> ext4;
 	a2 -> autofs;
         a3 -> swap ;
-        a4 ->livehd;
-        a4 ->ext4;
+        a4 -> backup;
+        a4 -> nilfs2;
+        a4 -> autofs;
         a5 -> root ;
         a5 -> pkg ;
 	a5 -> btrfs;
-	a6 -> btrfs_autofs;
-        a6 ->backup;
-        a6 ->audio;
-        a6 ->video;
-        a6 ->document;
-        a7 -> ext4;
-        a7 -> home;
+	a6 -> btrfs;
+        a6 -> home;
+        a7 ->livehd;
+        a7 ->xfs;
 }

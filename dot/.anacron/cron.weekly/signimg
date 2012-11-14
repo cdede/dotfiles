@@ -2,9 +2,8 @@
 ~/bin/loc_back.sh  -b  
 priv1=~/.priv
 backup=/media/backup/`whoami`
-priv2=$backup/private
+priv2=$backup/
 
 ls $priv2
-sleep 5
-rdiff-backup $priv1 $priv2
-rdiff-backup --remove-older-than 3W $priv2
+sleep 3
+rsync -avz --delete $priv1 $priv2
