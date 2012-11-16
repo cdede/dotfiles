@@ -13,7 +13,6 @@ digraph G {
 	subgraph cluster_1 {
 		node [style=filled];
 		btrfs;
-                ext2;
                 xfs;
                 autofs;
                 nilfs2;
@@ -35,7 +34,7 @@ digraph G {
 	}
 
 	a2 -> boot;
-	a2 -> ext2;
+	a2 -> btrfs;
 	a2 -> autofs;
         a3 -> swap ;
         a4 -> backup;
