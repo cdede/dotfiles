@@ -31,7 +31,7 @@ do
       ;;
     (-b)
       f1=`mktemp`
-      sha256sum `ls -1 -t /media/boot_ro/{*,live/*}.img`>$f1
+      sha256sum `ls -1 -t /media/boot_ro/*.img`>$f1
       cmp_or_mv $f1 $path1/init_sign
       ;;
     (-s)

@@ -3,6 +3,7 @@ digraph G {
   bgcolor ="#009900";
 
   Distribution -> Debian -> Archlinux;
+  rescue ->archbang;
 kernel ->"kernel26";
 mail->"mutt fdm procmail msmtp";
   Browsers ->Chromium;
