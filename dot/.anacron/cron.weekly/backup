@@ -1,7 +1,9 @@
 #!/bin/bash
-priv1=~/.priv
-priv2=/media/backup/`whoami`/
+priv1=~/.config/priv2
+back1=/media/backup/`whoami`/
 
-ls $priv2
+ls $back1
 sleep 3
-rsync -avz --delete $priv1 $priv2
+rsync -avz --delete $priv1 $back1
+sync
+
