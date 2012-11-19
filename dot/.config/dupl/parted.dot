@@ -14,6 +14,7 @@ digraph G {
 		node [style=filled];
 		btrfs;
                 xfs;
+                ext4;
                 autofs;
                 nilfs2;
 		label = "type";
@@ -37,14 +38,15 @@ digraph G {
 	a2 -> btrfs;
 	a2 -> autofs;
         a3 -> swap ;
-        a4 -> backup;
-        a4 -> nilfs2;
-        a4 -> autofs;
+        a7 -> backup;
+        a7 -> nilfs2;
+        a7 -> autofs;
         a5 -> root ;
         a5 -> pkg ;
 	a5 -> btrfs;
-	a6 -> btrfs;
+	a6 -> xfs;
+ //       Maximizing_Performance
         a6 -> home;
-        a7 ->livehd;
-        a7 ->xfs;
+        a4 ->livehd;
+        a4 ->ext4;
 }
