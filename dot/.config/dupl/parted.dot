@@ -6,20 +6,12 @@ digraph G {
 		style=filled;
 		color=lightgrey;
 		node [style=filled,color=cyan];
-		a2 -> a3 ->a4-> a5->a6->a7;
+		a2 -> a13->a15;
+                a3 ->vgroot;
+                a4 ->vghome;
 		label = "/dev/sdan";
 	}
 
-	subgraph cluster_1 {
-		node [style=filled];
-		btrfs;
-                xfs;
-                ext4;
-                autofs;
-                nilfs2;
-		label = "type";
-		color=blue
-	}
 	subgraph cluster_2 {
 		style=filled;
 		color=lightgrey;
@@ -28,25 +20,28 @@ digraph G {
 		backup;
                 livehd;
 		root ;
-                pkg;  //  /var/cache/pacman/pkg
+                usr;
+                var;
 		swap;
 		home;
 		label = "name";
 	}
 
 	a2 -> boot;
-	a2 -> btrfs;
+	a2 -> ext3;
 	a2 -> autofs;
-        a3 -> swap ;
-        a7 -> backup;
-        a7 -> nilfs2;
-        a7 -> autofs;
-        a5 -> root ;
-        a5 -> pkg ;
-	a5 -> btrfs;
-	a6 -> xfs;
- //       Maximizing_Performance
-        a6 -> home;
-        a4 ->livehd;
-        a4 ->ext4;
+        vgroot -> swap ;
+        vgroot -> root ;
+        root -> ext3;
+        vgroot -> usr ;
+        usr ->ext4;
+        vgroot -> var ;
+        var ->ext4;
+        a15 -> backup;
+        a15 -> nilfs2;
+        a15 -> autofs;
+        vghome -> home;
+	home -> ext4;
+        a13 ->livehd;
+        a13 ->jfs;
 }
