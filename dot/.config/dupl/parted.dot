@@ -7,8 +7,8 @@ digraph G {
 		color=lightgrey;
 		node [style=filled,color=cyan];
 		a2 -> a13->a15;
-                a3 ->vgroot;
-                a4 ->vghome;
+                vgroot;
+                vghome;
 		label = "/dev/sdan";
 	}
 
@@ -32,7 +32,7 @@ digraph G {
 	a2 -> autofs;
         vgroot -> swap ;
         vgroot -> root ;
-        root -> ext3;
+        root -> ext4;
         vgroot -> usr ;
         usr ->ext4;
         vgroot -> var ;
