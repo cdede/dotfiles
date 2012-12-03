@@ -6,9 +6,10 @@ digraph G {
 		style=filled;
 		color=lightgrey;
 		node [style=filled,color=cyan];
-		a2 -> a13->a15;
+		a2 ;
                 vgroot;
                 vghome;
+                vg3;
 		label = "/dev/sdan";
 	}
 
@@ -37,11 +38,11 @@ digraph G {
         usr ->ext4;
         vgroot -> var ;
         var ->ext4;
-        a15 -> backup;
-        a15 -> nilfs2;
-        a15 -> autofs;
         vghome -> home;
 	home -> ext4;
-        a13 ->livehd;
-        a13 ->jfs;
+        vg3 ->backup;
+        vg3 ->livehd;
+        livehd ->xfs;
+        backup -> ext4;
+        backup -> autofs;
 }
