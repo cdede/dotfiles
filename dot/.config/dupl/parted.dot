@@ -40,9 +40,8 @@ digraph G {
         var ->ext4;
         vghome -> home;
 	home -> ext4;
-        vg3 ->backup;
         vg3 ->livehd;
         livehd ->xfs;
-        backup -> ext4;
-        backup -> autofs;
+        backup -> cryptsetup;
+        backup -> cloud;
 }
