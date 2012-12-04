@@ -1,4 +1,5 @@
 // dot -Tpng  parted.dot -o line1.png
+//  default ext4
 digraph G {
   bgcolor ="#009900";
 
@@ -9,7 +10,7 @@ digraph G {
 		a2 ;
                 vgroot;
                 vghome;
-                vg3;
+                a6;
 		label = "/dev/sdan";
 	}
 
@@ -33,15 +34,10 @@ digraph G {
 	a2 -> autofs;
         vgroot -> swap ;
         vgroot -> root ;
-        root -> ext4;
         vgroot -> usr ;
-        usr ->ext4;
         vgroot -> var ;
-        var ->ext4;
         vghome -> home;
-	home -> ext4;
-        vg3 ->livehd;
-        livehd ->xfs;
+        a6 ->livehd;
         backup -> cryptsetup;
         backup -> cloud;
 }
