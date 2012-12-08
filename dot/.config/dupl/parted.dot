@@ -10,7 +10,6 @@ digraph G {
 		a2 ;
                 vgroot;
                 vghome;
-                a6;
 		label = "/dev/sdan";
 	}
 
@@ -37,7 +36,8 @@ digraph G {
         vgroot -> usr ;
         vgroot -> var ;
         vghome -> home;
-        a6 ->livehd;
+        vgroot ->livehd;
+        livehd ->jfs;
         backup -> cryptsetup;
         backup -> cloud;
 }
