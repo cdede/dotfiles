@@ -37,7 +37,6 @@ digraph G {
         vgroot -> var ;
         vghome -> home;
         vgroot ->livehd;
-        livehd ->jfs;
         backup -> cryptsetup;
         backup -> cloud;
 }
