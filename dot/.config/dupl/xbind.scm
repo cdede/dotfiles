@@ -33,7 +33,7 @@
 
 (xbindkey 
    '(mod4 shift a) 
-   "chromium ")
+   "firefox ")
 
 (xbindkey 
    '(mod4 shift s) 

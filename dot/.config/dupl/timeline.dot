@@ -6,7 +6,7 @@ digraph G {
   rescue ->archbang->systemrescuecd;
 kernel ->"kernel26";
 mail->"mutt fdm procmail msmtp";
-  Browsers ->Chromium;
+  Browsers ->firefox;
   wm -> ratpoison->notion->i3->awesome->spectrwm;
   lock ->xscreensaver -> slock->i3lock;
   time -> openntpd;
@@ -28,7 +28,6 @@ backup->duplicity;
 
 
 mail->gmail;
-Browsers ->firefox;
  wm ->fluxbox->openbox;
  "Terminals"->urxvt;
 "PDF Viewers"->djview4;
