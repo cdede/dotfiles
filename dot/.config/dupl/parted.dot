@@ -9,7 +9,7 @@ digraph G {
 		node [style=filled,color=cyan];
 		a2 ;
                 vgroot;
-                vghome;
+                a6;
 		label = "/dev/sdan";
 	}
 
@@ -25,6 +25,7 @@ digraph G {
                 var;
 		swap;
 		home;
+                home_ro;
 		label = "name";
 	}
 
@@ -33,10 +34,14 @@ digraph G {
 	a2 -> autofs;
         vgroot -> swap ;
         vgroot -> root ;
-        vgroot -> usr ;
         vgroot -> var ;
-        vghome -> home;
+        vgroot -> home;
         vgroot ->livehd;
+        vgroot ->home_ro;
+        home_ro->autofs;
+        a6 -> usr ;
+        a6 ->btrfs;
+        a6 ->ro;
         backup -> cryptsetup;
         backup -> cloud;
 }
