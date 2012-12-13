@@ -9,6 +9,8 @@ digraph G {
 		node [style=filled,color=cyan];
 		a2 ;
                 vgroot;
+                a4;
+                a5;
                 a6;
 		label = "/dev/sdan";
 	}
@@ -18,30 +20,32 @@ digraph G {
 		color=lightgrey;
 		node [style=filled,color=yellow];
 		boot;
-		backup;
-                livehd;
 		root ;
                 usr;
                 var;
 		swap;
 		home;
                 home_ro;
+                home_rw;
 		label = "name";
 	}
 
 	a2 -> boot;
 	a2 -> ext3;
-	a2 -> autofs;
+	autofs->a2;
+	autofs->a4;
+	autofs->a5;
         vgroot -> swap ;
         vgroot -> root ;
         vgroot -> var ;
         vgroot -> home;
-        vgroot ->livehd;
-        vgroot ->home_ro;
-        home_ro->autofs;
+        home->backup;
+        a4 ->home_ro;
+        home_ro->livehd;
+        a5 ->home_rw;
         a6 -> usr ;
         a6 ->btrfs;
         a6 ->ro;
-        backup -> cryptsetup;
+        backup -> encfs;
         backup -> cloud;
 }
