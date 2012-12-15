@@ -12,7 +12,6 @@ digraph G {
                 a4;
                 a5;
                 a6;
-                a7;
 		label = "/dev/sdan";
 	}
 
@@ -37,17 +36,19 @@ digraph G {
 	autofs->a4;
 	autofs->a5;
         btrfs ->a6;
-        btrfs ->a7;
+        xfs ->root;
         vgroot -> swap ;
         vgroot -> var ;
         vgroot -> home;
+        vgroot -> root;
         home->backup;
         a4 ->home_ro;
         home_ro->livehd;
+        home_ro->pkgfile;
+        home_ro->pkg;
         a5 ->home_rw;
         a6 -> usr ;
         a6 ->ro;
-        a7 -> root ;
         backup -> encfs;
         backup -> cloud;
 }
