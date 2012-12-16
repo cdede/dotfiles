@@ -8,12 +8,10 @@ digraph G {
 		color=lightgrey;
 		node [style=filled,color=cyan];
 		a2 ;
-                vgroot;
                 a4;
-                a6;
                 a11;
                 a12;
-		label = "/dev/sdan";
+		label = "autofs";
 	}
 
 	subgraph cluster_2 {
@@ -21,37 +19,34 @@ digraph G {
 		color=lightgrey;
 		node [style=filled,color=yellow];
 		boot;
+                home_ro;
+                home_rw;
+		label = "name";
+	}
+	subgraph cluster_3 {
+		style=filled;
+		color=lightgrey;
+		node [style=filled,color=blue];
 		root ;
                 usr;
                 var;
 		swap;
 		home;
-                home_ro;
-                home_rw;
-		label = "name";
+		label = "vgroot";
 	}
+
 
 	a2 -> boot;
 	a2 -> ext3;
-	autofs->a2;
-	autofs->a4;
-	autofs->a11;
-	autofs->a12;
-        home_rw->a11;
-        home_rw->a12;
-        btrfs ->a6;
-        xfs ->root;
-        vgroot -> swap ;
-        vgroot -> var ;
-        vgroot -> home;
-        vgroot -> root;
+        a11->home_rw;
+        a12->home_rw;
+        root->xfs;
+        usr ->ro;
         home->backup;
         a4 ->home_ro;
         home_ro->livehd;
         home_ro->pkgfile;
         home_ro->pkg;
-        a6 -> usr ;
-        a6 ->ro;
         backup -> encfs;
         backup -> cloud;
 }
