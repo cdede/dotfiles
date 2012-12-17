@@ -40,10 +40,10 @@ digraph G {
         root->xfs;
         usr ->ro;
         home->backup;
+        home->opt;
         a4 ->home_ro;
         home_ro->livehd;
         home_ro->pkgfile;
-        home_ro->opt;
         backup -> encfs;
         backup -> cloud;
 }
