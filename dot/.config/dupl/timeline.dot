@@ -3,13 +3,13 @@ digraph G {
   bgcolor ="#009900";
 
   Distribution -> Debian -> Archlinux;
-  rescue ->archbang->systemrescuecd;
-kernel ->"kernel26";
+  rescue ->systemrescuecd->archbang;
+kernel ->linux;
 mail->"mutt fdm procmail msmtp";
   Browsers ->chromium;
   wm -> ratpoison->notion->i3->awesome->spectrwm;
   lock ->xscreensaver -> slock->i3lock;
-  time -> openntpd;
+  time -> openntpd->ntp;
   "Login managers"->xdm->"startx vlock";
   Torrents -> vuze ->aria2;
   "Terminals"->"xterm screen";
@@ -27,6 +27,7 @@ backup->duplicity;
 "cloud"->wuala;
 
 
+kernel ->"linux-lts";
 mail->gmail;
   Browsers ->firefox;
  wm ->fluxbox->openbox;
