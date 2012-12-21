@@ -9,10 +9,10 @@ digraph G {
   a2 -> ext3;
   root->xfs;
   usr ->ro;
-  home0->pkg;
   home0->backup;
   home0->opt;
-  home0->pkgfile;
+  home1->pkgfile;
+  home1->pkg;
   a5->livehd;
   a5->xfs;
   backup -> encfs;
