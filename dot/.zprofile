@@ -16,6 +16,4 @@ if [ -z $GPG_AGENT_INFO ] ; then
   eval "$(gpg-agent --daemon)"
 fi
 
-alias startx='startx >~/.xlog 2>&1'
-
-[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx -- vt$XDG_VTNR 
+[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx >~/.xlog 2>&1 
