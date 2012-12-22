@@ -15,12 +15,7 @@ export _JAVA_AWT_WM_NONREPARENTING
 if [ -z $GPG_AGENT_INFO ] ; then 
   eval "$(gpg-agent --daemon)"
 fi
-exec_x(){
- exec nohup startx > .xlog & 
- vlock
-}
-if [[ -z $DISPLAY ]] && ! [[ -e /tmp/.X11-unix/X0 ]] && (( EUID )); then
-    echo -n 'not start x?(y/n)'
-    read -q || exec_x
-    clear
-fi
+
+alias startx='startx >~/.xlog 2>&1'
+
+[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx -- vt$XDG_VTNR 
