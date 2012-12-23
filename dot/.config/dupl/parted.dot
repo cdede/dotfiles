@@ -5,6 +5,8 @@ digraph G {
   autofs->home2;
   autofs->home1;
   autofs->a2;
+  start->a1;
+  a1->bios_grub;
   a2 -> boot;
   a2 -> ext3;
   root->xfs;
@@ -13,8 +15,8 @@ digraph G {
   home0->opt;
   home1->pkgfile;
   home1->pkg;
-  a5->livehd;
-  a5->xfs;
+  a31->livehd;
+  a31->end;
   backup -> encfs;
   backup -> cloud;
   vgroot->root ;
