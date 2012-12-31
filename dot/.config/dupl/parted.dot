@@ -2,7 +2,6 @@
 //  default ext4
 digraph G {
   bgcolor ="#009900";
-  autofs->home2;
   autofs->home1;
   autofs->a2;
   start->a1;
@@ -12,8 +11,6 @@ digraph G {
   usr ->ro;
   home0->backup;
   home0->opt;
-  home1->pkgfile;
-  home1->pkg;
   a31->livehd;
   a31->end;
   backup -> encfs;
@@ -24,5 +21,4 @@ digraph G {
   vgroot->swap;
   vghome->home0;
   vghome->home1;
-  vghome->home2;
 }
