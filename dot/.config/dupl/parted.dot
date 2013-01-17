@@ -2,26 +2,42 @@
 //  default ext4
 digraph G {
   bgcolor ="#009900";
-  autofs->home1;
-  a42->home1;
-  a42->btrfs;
-  autofs->a2;
+  main->code;
+  main->data;
+  main->repair;
+
   start->a1;
   a1->bios_grub;
-  a2 -> boot;
-  a2 -> ext3;
-  a21->btrfs;
-  a21->usr;
-  usr ->ro;
-  a4->home0;
-  a4->xfs;
-  home0->backup;
-  home0->opt;
-  a31->livehd;
   a31->end;
-  backup -> encfs;
-  backup -> cloud;
-  vgroot->root ;
-  vgroot->var;
-  vgroot->swap;
+
+  code->boot;
+  code->root;
+  code->var;
+  code->swap;
+  code->usr;
+  root ->vgroot;
+  var->vgroot;
+  swap->vgroot;
+  boot->a2;
+  boot->ext3;
+  boot->autofs;
+  usr->btrfs;
+  usr->a21;
+  usr ->ro;
+
+  repair->livehd;
+  livehd->a31;
+
+  data->home0;
+  data->home1;
+  data->password;
+  home1->autofs;
+  home1->a42;
+  home1->btrfs;
+  home0->vghome;
+  home0->xfs;
+  home0->password;
+  home0->opt;
+  password -> encfs;
+  password -> cloud;
 }
