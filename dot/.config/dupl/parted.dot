@@ -29,11 +29,7 @@ digraph G {
   livehd->a31;
 
   data->home0;
-  data->home1;
   data->password;
-  home1->autofs;
-  home1->a42;
-  home1->btrfs;
   home0->vghome;
   home0->xfs;
   home0->password;
