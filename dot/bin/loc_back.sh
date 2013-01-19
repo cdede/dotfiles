@@ -33,6 +33,7 @@ do
       f1=`mktemp`
       sha256sum `ls -1 -t /media/boot_ro/*.img`>$f1
       cmp_or_mv $f1 $path1/init_sign
+      cmp -s ~/.config/priv2/test.kdb  /media/boot_ro/.mirror/test.kdb || echo (WW) not same
       ;;
     (-s)
       f1=$path1/wz9hJi6.gz.gpg

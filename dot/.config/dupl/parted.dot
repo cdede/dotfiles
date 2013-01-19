@@ -15,9 +15,9 @@ digraph G {
   code->var;
   code->swap;
   code->usr;
-  root ->vgroot;
-  var->vgroot;
-  swap->vgroot;
+  root ->lvm;
+  var->lvm;
+  swap->a3;
   boot->a2;
   boot->ext3;
   boot->autofs;
@@ -29,11 +29,7 @@ digraph G {
   livehd->a31;
 
   data->home0;
-  data->password;
-  home0->vghome;
+  home0->lvm;
   home0->xfs;
-  home0->password;
   home0->opt;
-  password -> encfs;
-  password -> cloud;
 }
