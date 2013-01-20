@@ -1,6 +1,9 @@
 #!/bin/bash
 ######
-~/bin/loc_back.sh -l -v -b 
-priv1=~/.priv
-run-parts $priv1
+~/bin/loc_back.sh -l -b 
+back1=~/.priv
+back2=$back1/back2
+rdiff-backup  ~/.config/priv1 $back2
+rdiff-backup --remove-older-than 1W $back2
+run-parts $back1
 
