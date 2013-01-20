@@ -5,7 +5,7 @@ back_files()
   pacman -Qq>pkg_aur.list
   pacman -Qqm>aur.list
   find ~/Downloads/video -maxdepth  2 -print>video
-  #sha256sum `ls -1 -t /media/boot_ro/*.img`>init_sign
+  sha256sum `ls -1 -t /media/boot_ro/*.img`>init_sign
 }
 pushd ~/.config/priv1
 set -- $(getopt s:lb "$@" )
@@ -19,7 +19,7 @@ do
       gpg -v  ~/.config/priv2/test.kdb.sig  || echo "(WW) not same "
       ;;
     (-s)
-      f1=~/.config/priv2/wz9hJi6.gz.gpg
+      f1=wz9hJi6.gz.gpg
       gpg -o - $f1 |zcat  | sed -n "$(expr $2 + 1),+1p"
        shift
       ;;
