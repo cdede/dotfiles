@@ -21,8 +21,7 @@ digraph G {
   boot->a2;
   boot->ext3;
   boot->autofs;
-  usr->btrfs;
-  usr->a21;
+  usr->lvm;
   usr ->ro;
 
   repair->livehd;
