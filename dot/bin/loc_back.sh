@@ -1,11 +1,11 @@
 #!/bin/bash
 back_files()
 { 
-  pacman -Qqe | grep -vx "$(pacman -Qqm)">pkg.list
-  pacman -Qq>pkg_aur.list
-  pacman -Qqm>aur.list
-  find ~/Downloads/video -maxdepth  2 -print>video
-  sha256sum `ls -1 -t /media/boot_ro/*.img`>init_sign
+  cpmv.py -c 'pacman -Qqe | grep -vx "$(pacman -Qqm)"' -f pkg.list
+  cpmv.py -c 'pacman -Qq' -f pkg_aur.list
+  cpmv.py -c 'pacman -Qqm' -f aur.list
+  cpmv.py -c 'find ~/Downloads/video -maxdepth  2 -print' -f video
+  cpmv.py -c 'sha256sum "$(ls -1 -t /media/boot_ro/*.img)"' -f init_sign
 }
 pushd ~/.config/priv1
 set -- $(getopt s:lb "$@" )
