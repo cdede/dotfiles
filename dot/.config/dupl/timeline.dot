@@ -7,10 +7,10 @@ digraph G {
 kernel ->linux;
 mail->"mutt fdm procmail msmtp";
   Browsers ->chromium;
-  wm -> ratpoison->notion->i3->awesome->spectrwm;
-  lock ->xscreensaver -> slock->i3lock;
+  wm -> awesome->spectrwm;
+  lock -> slock->i3lock;
   time -> openntpd->ntp;
-  "Login managers"->xdm->"startx vlock";
+  "Login managers"->xdm->"startx";
   Torrents -> vuze ->aria2;
   "Terminals"->"xterm screen";
   "Text Editors" ->gvim;
@@ -23,14 +23,14 @@ screenshot->imagemagick->scrot ;
 "video Players"->smplayer->vlc;
 backup->duplicity;
 "launch"->"dmenu ";
-"password manager"->pwsafe->"gnome-keyring"->keepassx;
+"password manager"->keepassx;
 "cloud"->wuala;
 
 
 kernel ->"linux-lts";
 mail->gmail;
   Browsers ->firefox;
- wm ->fluxbox->openbox;
+ wm ->dwm;
  "Terminals"->urxvt;
 "PDF Viewers"->djview4;
 "launch"->"xbindkeys";
