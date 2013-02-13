@@ -6,7 +6,7 @@ back_files()
   $cmd1 -c 'pacman -Qq' -f pkg_aur.list
   $cmd1 -c 'pacman -Qqm' -f aur.list
   $cmd1 -c 'find ~/Downloads/video -maxdepth  2 -print' -f video
-  $cmd1 -c 'sha256sum "$(ls -1 -t /media/boot_ro/*.img)"' -f init_sign
+  $cmd1 -c 'ls -1 -t /media/boot_ro/*.img | xargs sha256sum' -f init_sign
 }
 pushd ~/.config/priv1
 set -- $(getopt s:lb "$@" )
