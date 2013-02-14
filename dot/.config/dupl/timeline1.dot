@@ -1,0 +1,38 @@
+//dot -Tpng timeline1.dot -o line1.png
+digraph G {
+  bgcolor ="#009900";
+
+  "Display/Login Manager" ->None;
+  "Tiling Window Managers" ->spectrwm;
+  "Tiling Window Managers" ->dwm;
+  "Floating Window Managers" -> None;
+  "Desktop Environments" ->None;
+  "System Panels/Menus/Trays" ->dmenu;
+  "System Panels/Menus/Trays" ->stalonetray	 ;
+  Shells->zsh;
+  "Terminal Emulators"->xterm	 ;
+  "Terminal Emulators"->"rxvt-unicode"	 ;
+  "File Managers"->coreutils;
+  "File Managers"->vifm;
+  "Network Managers"->netcfg	 ;
+  "Package Managers"->pacman ;
+  "Package Managers"->pacmatic ;
+  "Archive Managers"->atool	 ;
+  "System Monitors"->htop;
+  "System Monitors"->conky;
+  "Security/Backup Utilities"->rsync;
+  "Security/Backup Utilities"->"rdiff-backup";
+  "Image Viewers" -> feh;
+  "Music Players"->moc;
+  "Video Players"->vlc;
+  "Text Editors"->vim;
+  "PDF Readers"->xpdf;
+  "PDF Readers"->djview4;
+  "Email Clients"->mutt;
+  "Web Browsers"->chromium;
+  "Web Browsers"->firefox;
+  "Torrent Clients"->aria2;
+  "RSS Readers"->None;
+  "Web Utilities"->wuala;
+  "Web Utilities"->dropbox;
+}

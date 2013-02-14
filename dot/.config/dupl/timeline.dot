@@ -5,34 +5,12 @@ digraph G {
   Distribution -> Debian -> Archlinux;
   rescue ->systemrescuecd->archbang;
 kernel ->linux;
-mail->"mutt fdm procmail msmtp";
-  Browsers ->chromium;
-  wm -> awesome->spectrwm;
   lock -> slock->i3lock;
   time -> openntpd->ntp;
-  "Login managers"->xdm->"startx";
-  Torrents -> vuze ->aria2;
-  "Terminals"->"xterm screen";
-  "Text Editors" ->gvim;
-  shell ->bash->zsh;
-"PDF Viewers"->xpdf;
-"Image Viewers" -> feh;
-Monitors->conky;
 screenshot->imagemagick->scrot ;
-"Audio Players"->moc;
-"video Players"->smplayer->vlc;
-backup->duplicity;
-"launch"->"dmenu ";
 "password manager"->keepassx;
-"cloud"->wuala;
 
 
 kernel ->"linux-lts";
-mail->gmail;
-  Browsers ->firefox;
- wm ->dwm;
- "Terminals"->urxvt;
-"PDF Viewers"->djview4;
 "launch"->"xbindkeys";
-"cloud"->dropbox;
 }
