@@ -11,18 +11,14 @@ digraph G {
   a31->end;
 
   code->boot;
-  code->root;
-  code->var;
-  code->swap;
-  code->usr;
-  root ->lvm;
-  var->lvm;
-  swap->a3;
   boot->a2;
   boot->ext3;
   boot->autofs;
-  usr->lvm;
-  usr ->ro;
+  code->swap;
+  swap->a3;
+
+  code->root;
+  root ->btrfs;
 
   repair->livehd;
   livehd->a31;
@@ -30,5 +26,4 @@ digraph G {
   data->home0;
   home0->lvm;
   home0->xfs;
-  home0->opt;
 }
