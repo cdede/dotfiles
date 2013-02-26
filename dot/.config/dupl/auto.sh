@@ -3,7 +3,7 @@ tmp_chrom()
 {
   rsync -av --delete ~/.config/chromium.ro /tmp
 }
-path2=$XDG_CONFIG_HOME/dupl
+path2=~/.config/dupl
 xrdb -m $path2/Xresources 
 xmodmap $path2/xmodmaprc
 xset -dpms
