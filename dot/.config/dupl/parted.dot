@@ -5,6 +5,7 @@ digraph G {
   main->code;
   main->data;
   main->repair;
+  main->common;
 
   start->a1;
   a1->bios_grub;
@@ -18,12 +19,20 @@ digraph G {
   swap->a3;
 
   code->root;
-  root ->btrfs;
+  common -> pkg;
+  a8 ->btrfs;
+  a8 -> root;
+  a8 -> old_root_snap;
+  a8 -> pkg;
 
   repair->livehd;
   livehd->a31;
 
   data->home0;
-  home0->lvm;
-  home0->xfs;
+  data->video;
+  lvm->data;
+  video->xfs;
+  video->autofs;
+  video->v1;
+  video->v2;
 }
