@@ -22,7 +22,7 @@ do
     (-s)
       f1=wz9hJi6.gz.gpg
 
-      gpg -o - $f1 |zcat  | sed -n "$(expr $(sudo /var/`whoami`/bin/get_oath.sh) + 1),+1p"
+      gpg -o - $f1 |zcat  | sed -n "$(expr $(sudo /etc/sudo_`whoami`/get_oath.sh) + 1),+1p"
        shift
       ;;
     (--) shift; break;;
