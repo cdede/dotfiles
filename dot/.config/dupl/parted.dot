@@ -19,11 +19,11 @@ digraph G {
   swap->a3;
 
   code->root;
-  common -> pkg;
+  common -> var_cache_pacman;
   a8 ->btrfs;
   a8 -> root;
   a8 -> old_root_snap;
-  a8 -> pkg;
+  a8 -> var_cache_pacman;
 
   repair->livehd;
   livehd->a31;
