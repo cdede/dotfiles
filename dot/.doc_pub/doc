@@ -4,3 +4,28 @@ tips
 task
 ---------------------
     task add pacman due:eow recur:weekly
+
+edit video
+---------------------
+* change to mp3:
+
+        ffmpeg -i 1.flv -f mp3 -ab 192000 -vn music.mp3
+* merge mkv:
+
+        mkvmerge -o out.mkv -A video.mp4 music.mp3
+
+git
+---------------------
+* rm tag:
+
+        git tag -d 0.2 0.3
+        git push origin :refs/tags/{0.2,0.3}
+
+X
+---------------------
+* Xephyr:
+
+        Xephyr :1 -screen 800x600
+        export DISPLAY=:1.0
+        wm &
+
