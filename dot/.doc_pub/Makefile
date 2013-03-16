@@ -1,4 +1,5 @@
 vpath  $(HOME)/.doc_pub
 DOC: doc 
-	markdown $? > $(HOME)/.webdoc/$(notdir  $?).html
+	asciidoc $? 
+	cp -asf $(PWD)/*.html $(HOME)/.webdoc
 	touch DOC

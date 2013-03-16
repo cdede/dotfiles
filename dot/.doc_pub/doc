@@ -1,31 +1,31 @@
-tips
-====================
+= tips =
+v2.0
 
-task
----------------------
-    task add pacman due:eow recur:weekly
+<<A01, task >>
 
-edit video
----------------------
-* change to mp3:
+<<A18,Xephyr>>
 
-        ffmpeg -i 1.flv -f mp3 -ab 192000 -vn music.mp3
-* merge mkv:
+<<A02,change to mp3 >> merge mkv
 
-        mkvmerge -o out.mkv -A video.mp4 music.mp3
-
-git
----------------------
-* rm tag:
-
-        git tag -d 0.2 0.3
-        git push origin :refs/tags/{0.2,0.3}
-
-X
----------------------
-* Xephyr:
-
-        Xephyr :1 -screen 800x600
-        export DISPLAY=:1.0
-        wm &
-
+== git ==
+<<A03,rm tag >>
+[[A01]]
+----
+task add pacman due:eow recur:weekly
+----
+[[A02]]
+----
+ffmpeg -i 1.flv -f mp3 -ab 192000 -vn music.mp3
+mkvmerge -o out.mkv -A video.mp4 music.mp3
+----
+[[A03]]
+----
+git tag -d 0.2 0.3
+git push origin :refs/tags/{0.2,0.3}
+----
+[[A18]]
+----
+Xephyr :1 -screen 800x600
+export DISPLAY=:1.0
+wm &
+----
