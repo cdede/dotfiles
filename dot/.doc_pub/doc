@@ -1,31 +1,19 @@
 = tips =
 v2.0
 
-<<A01, task >>
+<<task, task >>
+<<git,git rm tag >>
+<<Xephyr,Xephyr>>
 
-<<A18,Xephyr>>
+edit_video:: <<ffmpeg, change to mp3 >> 
+<<mkvmerge ,merge mkv>>
+[[Xephyr]]
+file://{docdir}/git.html[git]
+[[task]]
+[[ffmpeg]]
+----
+[[mkvmerge]]
+----
+[[git]]
 
-<<A02,change to mp3 >> merge mkv
 
-== git ==
-<<A03,rm tag >>
-[[A01]]
-----
-task add pacman due:eow recur:weekly
-----
-[[A02]]
-----
-ffmpeg -i 1.flv -f mp3 -ab 192000 -vn music.mp3
-mkvmerge -o out.mkv -A video.mp4 music.mp3
-----
-[[A03]]
-----
-git tag -d 0.2 0.3
-git push origin :refs/tags/{0.2,0.3}
-----
-[[A18]]
-----
-Xephyr :1 -screen 800x600
-export DISPLAY=:1.0
-wm &
-----

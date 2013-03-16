@@ -1,0 +1,5 @@
+----
+Xephyr :1 -screen 800x600
+export DISPLAY=:1.0
+wm &
+----
