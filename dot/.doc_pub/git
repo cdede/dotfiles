@@ -1,4 +1,2 @@
-----
 git tag -d 0.2 0.3
 git push origin :refs/tags/{0.2,0.3}
-----
