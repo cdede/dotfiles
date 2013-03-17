@@ -30,7 +30,7 @@ digraph G {
 
   data->home0;
   data->video;
-  lvm->data;
+  home0->lvm;
   video->xfs;
   video->autofs;
   video->v1;
