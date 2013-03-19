@@ -1,2 +1,4 @@
 ffmpeg -i 1.flv -f mp3 -ab 192000 -vn music.mp3
 mkvmerge -o out.mkv -A video.mp4 music.mp3
+ffmpeg -i music.mp3 -ss 00:01:23 -t 00:04:56 -acodec copy music_b.mp3
+
