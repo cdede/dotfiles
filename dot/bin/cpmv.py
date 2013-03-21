@@ -1,9 +1,18 @@
 #!/usr/bin/python
 from filecmp import cmp
-from optparse import OptionParser
 import subprocess
 import os
+import sys
 import shutil
+
+def getconf():
+    xdg = os.getenv('XDG_CONFIG_HOME') or os.path.join(os.getenv('HOME'), '.config')
+    conffile = os.path.join(xdg, 'backup', 'config.py')
+    if not os.access(conffile, os.R_OK):
+        print('no conf file found')
+        sys.exit(1)
+    exec(compile(open(conffile).read(), conffile, 'exec'))
+    return (locals()['cmds'])
 
 class CopyOrMv(object):
     """"""
@@ -24,12 +33,10 @@ class CopyOrMv(object):
         return 
 
 def main():
-    parser = OptionParser()
-    parser.add_option('-c', '--cmd', dest='cmd', default='', help='cmd ')
-    parser.add_option('-f', '--filename', dest='filename', default='', help='filename ')
-    (options, args) = parser.parse_args()
-    cp1=CopyOrMv(options.cmd,options.filename)
-    cp1.start()
+    tmp1 = getconf()
+    for cmd,filename in tmp1.items():
+        cp1=CopyOrMv(cmd,filename)
+        cp1.start()
 
 if __name__ == '__main__':
     main()
