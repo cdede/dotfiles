@@ -1,3 +1,0 @@
-#!/bin/bash
-cron-pacmatic `whoami`
-fakeroot  pacman --noconfirm -Suw --dbpath /tmp/localsync/  --cachedir ~/.pkg
