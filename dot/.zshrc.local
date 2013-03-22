@@ -18,3 +18,9 @@ alias c='clear'
 alias dr1='watch dropbox  status'
 alias clweb='rsync -av --delete ~/.config/chromium.ro /tmp'
 alias fakelock='sudo -u fakelock i3lock -c  000000 -u'
+
+#path alias 
+hash -d V1="/media/video/"
+hash -d Vr1="/media/video_ro/"
+hash -d V2="/media/video4/"
+hash -d Vr2="/media/video4_ro/"
