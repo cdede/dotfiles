@@ -4,15 +4,16 @@ import subprocess
 import os
 import sys
 import shutil
+import json
 
 def getconf():
     xdg = os.getenv('XDG_CONFIG_HOME') or os.path.join(os.getenv('HOME'), '.config')
-    conffile = os.path.join(xdg, 'backup', 'config.py')
+    conffile = os.path.join(xdg, 'backup', 'config.json')
     if not os.access(conffile, os.R_OK):
         print('no conf file found')
         sys.exit(1)
-    exec(compile(open(conffile).read(), conffile, 'exec'))
-    return (locals()['cmds'])
+    tmp1 = json.load(open(conffile))
+    return tmp1
 
 class CopyOrMv(object):
     """"""
