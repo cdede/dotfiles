@@ -1,2 +1,11 @@
+{
 git tag -d 0.2 0.3
 git push origin :refs/tags/{0.2,0.3}
+}
+
+{
+  git branch exp1
+    git checkout exp1
+    git merge exp1 
+    git branch -d exp1
+}
