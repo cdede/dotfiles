@@ -13,7 +13,7 @@ do
     (-s)
       f1=wz9hJi6.gz.gpg
 
-      gpg -o - $f1 |zcat  | sed -n "$(expr $(sudo /etc/sudo_bin/no_pass.sh -g) + 1),+1p"
+      gpg -o - $f1 |zcat  | sed -n "$(expr $(sudo /etc/sudo_bin/no_pass -g) + 1),+1p"
        shift
       ;;
     (--) shift; break;;
