@@ -17,7 +17,7 @@ alias mount1='gvfs-mount -m -d  '
 alias c='clear'
 alias dr1='watch dropbox  status'
 alias clweb='rsync -av --delete ~/.config/chromium.ro /tmp'
-alias fakelock='sudo /etc/sudo_bin/no_pass.sh -l'
+alias fakelock='sudo /etc/sudo_bin/no_pass -l'
 #git
 alias gs='git status '
 alias ga='git add '
