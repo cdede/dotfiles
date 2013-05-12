@@ -1,25 +1,52 @@
-#!/bin/bash
-pushd ~/.config/priv1
-set -- $(getopt slb "$@" )
-while [ $# -gt 0 ]
-do
-    case "$1" in
-      (-l)
-        ~/bin/cpmv.py
-        ;;
-    (-b)
-      gpg -v  ~/.config/priv2/test.kdb.sig  || echo "(WW) not same "
-      ;;
-    (-s)
-      f1=wz9hJi6.gz.gpg
+#!/usr/bin/python
+from contextlib import contextmanager
+import os
+import argparse
 
-      gpg -o - $f1 |zcat  | sed -n "$(expr $(sudo /etc/sudo_bin/no_pass -g) + 1),+1p"
-       shift
-      ;;
-    (--) shift; break;;
-    (*)  break;;
-    esac
-    shift
-done
+def arg_parse():
+    "Parse the command line arguments"
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--packages", action="store_true",
+                      help="pacman packages", default=False)
+    parser.add_argument("--sign_key", action="store_true", 
+                      help="sign key ", default=False)
+    parser.add_argument('-s', "--sudo_key", help="sudo key ",
+            action="store_true", default=False)
+    return parser.parse_args()
 
-popd
+@contextmanager
+def pushd(new_dir):
+    previous = os.getcwd()
+    os.chdir(new_dir)
+    yield
+    os.chdir(previous)
+
+class RunCmd(object):
+    def __init__(self ,cmds,path = ''):
+        self.cmds = cmds.split(os.linesep)
+        self.path = path
+
+    def run_flag(self):
+        ret1 = 0
+        for f1 in self.cmds:
+            with pushd(self.path):
+                ret1 += os.system(f1)
+        return ret1
+
+def main():
+    args = arg_parse()
+    p1 = os.path.expanduser('~/.config/priv1')
+    cmd = ''
+    tmp = os.linesep
+    if args.packages:
+        cmd += '~/bin/cpmv.py' + tmp
+    if args.sign_key:
+        cmd += 'gpg -v  ~/.config/priv2/test.kdb.sig  ' + tmp
+    if args.sudo_key:
+        cmd += 'gpg -o - %s |zcat  | sed -n "$(expr $(sudo /etc/sudo_bin/no_pass -g) + 1),+1p"' % 'wz9hJi6.gz.gpg' + tmp
+
+    r1 = RunCmd(cmd,p1)
+    a1 = r1.run_flag()
+
+if __name__ == '__main__':
+    main()
