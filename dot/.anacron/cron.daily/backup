@@ -1,6 +1,6 @@
 #!/bin/bash
 ######
-~/bin/loc_back.sh -l -b 
+~/bin/loc_back -l -b 
 back1=~/.priv
 back2=$back1/back2
 rdiff-backup  ~/.config/priv1 $back2
