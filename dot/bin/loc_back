@@ -12,6 +12,8 @@ def arg_parse():
                       help="sign key ", default=False)
     parser.add_argument('-s', "--sudo_key", help="sudo key ",
             action="store_true", default=False)
+    parser.add_argument('-t', "--test", help="print cmds ",
+            action="store_true", default=False)
     return parser.parse_args()
 
 @contextmanager
@@ -23,7 +25,7 @@ def pushd(new_dir):
 
 class RunCmd(object):
     def __init__(self ,cmds,path = ''):
-        self.cmds = cmds.split(os.linesep)
+        self.cmds = cmds
         self.path = path
 
     def run_flag(self):
@@ -33,20 +35,25 @@ class RunCmd(object):
                 ret1 += os.system(f1)
         return ret1
 
+    def __str__(self):
+        return ''.join([i+os.linesep for i in self.cmds])
+
 def main():
     args = arg_parse()
     p1 = os.path.expanduser('~/.config/priv1')
-    cmd = ''
-    tmp = os.linesep
+    cmd = []
     if args.packages:
-        cmd += '~/bin/cpmv.py' + tmp
+        cmd.append( '~/bin/cpmv.py' )
     if args.sign_key:
-        cmd += 'gpg -v  ~/.config/priv2/test.kdb.sig  ' + tmp
+        cmd.append( 'gpg -v  ~/.config/priv2/test.kdb.sig  ' )
     if args.sudo_key:
-        cmd += 'gpg -o - %s |zcat  | sed -n "$(expr $(sudo /etc/sudo_bin/no_pass -g) + 1),+1p"' % 'wz9hJi6.gz.gpg' + tmp
+        cmd.append('gpg -o - %s |zcat  | sed -n "$(expr $(sudo /etc/sudo_bin/no_pass -g) + 1),+1p"' % 'wz9hJi6.gz.gpg' )
 
     r1 = RunCmd(cmd,p1)
-    a1 = r1.run_flag()
+    if args.test:
+        print (str(r1))
+    else:
+        a1 = r1.run_flag()
 
 if __name__ == '__main__':
     main()
