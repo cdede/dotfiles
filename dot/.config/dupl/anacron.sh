@@ -7,5 +7,5 @@ if [ `date +%Y%m%d` = "$day" ]; then
     exit 0;
 fi
 
-/usr/sbin/anacron -t ~/.anacrontab -S ~/.spoolcron/         
+/usr/bin/anacron -t ~/.anacrontab -S ~/.spoolcron/         
 
