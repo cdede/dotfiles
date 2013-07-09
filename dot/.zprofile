@@ -13,8 +13,10 @@ export XMODIFIERS
 _JAVA_AWT_WM_NONREPARENTING=1
 export _JAVA_AWT_WM_NONREPARENTING
 
-if [ -z $GPG_AGENT_INFO ] ; then 
+if [ -z $GPG_AGENT_INFO ] ; then
   eval "$(gpg-agent --daemon)"
 fi
+
+eval $(keychain --eval --agents ssh -Q --quiet )
 
 [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx >~/.xlog 2>&1 
