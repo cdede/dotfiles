@@ -60,65 +60,6 @@ EOF
     exit 0;
   }
 
-sub make_password(){
-  use Digest::SHA1  qw(sha1_hex );
-  my %ret=();
-  $ret{'pass'}=`cat /dev/urandom | tr -cd 'A-Za-z0-9_#&%' | head -c $_[0]`;
-  $ret{'hash'}=substr(sha1_hex($ret{'pass'}),0,7);
-  %ret;
-}
-sub check(){ 
-  if ($_[0] == 0)
-  {
-    print 'you win',"\n";
-    1;
-  }
-  else
-  {
-    print 'you lose',"\n";
-    0;
-  }
-}
-sub easter_egg2(){
-
-$test=$_[0];
-$win=0;
-do
-{
-$max_num=96;
-if(test){
-$n01=int(`echo "0\n1" |shuf  --random-source=/dev/urandom -n 1`);
-}else{
-$n01=int(`echo "0\n1" |shuf  --random-source=/dev/random -n 1`);
-}
-$n10=($n01+1)%2;
-%data1=&make_password($max_num+$n01);
-%data2=&make_password($max_num+$n10);
-
-        print '0  :',$data1{'hash'},"\n" ;
-        print '1  :',$data2{'hash'},"\n" ;
-        print "what is your choice\n" ;
-        if ($test){
-          $win+=&check($n01);
-        }
-        else{
-        $line=<STDIN>;
-        chomp $line;
-        if ($line eq '0')
-        {&check($n01);}
-        else
-        {&check($n10);}
-      }
-        $echo1='echo -n "'.$data1{'pass'}.'" | sha1sum';
-        $echo2='echo -n "'.$data2{'pass'}.'" | sha1sum';
-        print $echo1,"\n";
-        print $echo2,"\n";
-
-   $calc += 1;
-} while $calc <100;
-print $win,"\n";
-}
-
 my %options;
 getopts('e:h', \%options);
 $options{h} && usage();
