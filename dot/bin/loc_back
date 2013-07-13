@@ -47,7 +47,7 @@ def main():
     if args.sign_key:
         cmd.append( 'gpg -v  ~/.config/priv2/test.kdb.sig  ' )
     if args.sudo_key:
-        cmd.append('gpg -o - %s |zcat  | sed -n "$(expr $(sudo /etc/sudo_bin/no_pass -g) + 1),+1p"' % 'wz9hJi6.gz.gpg' )
+        cmd.append('gpg --quiet --batch -o - %s |zcat  | sed -n "$(expr $(sudo /etc/sudo_bin/no_pass -g) + 1),+1p"' % 'wz9hJi6.gz.gpg' )
 
     r1 = RunCmd(cmd,p1)
     if args.test:
