@@ -1,3 +1,4 @@
+#!/usr/bin/python2
 import re
 from optparse import OptionParser
 from bs4 import BeautifulSoup
