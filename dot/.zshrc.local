@@ -19,6 +19,7 @@ alias dr1='watch dropbox  status'
 alias clweb='rsync -av --delete ~/.config/chromium.ro /tmp'
 alias fakelock='sudo /etc/sudo_bin/no_pass -l'
 alias ssh='eval $(/usr/bin/keychain --eval --agents ssh -Q --quiet ~/.ssh/id_rsa) && ssh'
+alias trals='gvfs-ls trash:'
 #git
 alias gs='git status '
 alias ga='git add '
