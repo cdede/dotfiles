@@ -24,9 +24,8 @@ class CopyOrMv(object):
         self.filename1=filename+'.new'
 
     def start(self ):
-        handler = open(self.filename1, 'w')
-        handler.write(subprocess.getoutput(self.cmd))
-        handler.close()
+        with open(self.filename1, 'w') as f1:
+            f1.write(subprocess.getoutput(self.cmd))
         if os.path.isfile(self.filename) and cmp(self.filename1,self.filename):
             os.remove(self.filename1)
         else:
