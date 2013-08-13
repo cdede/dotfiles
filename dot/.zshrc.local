@@ -1,8 +1,8 @@
 f1=~/.config/priv1/zshrc 
 if [ -f $f1 ]; then
   source $f1
-  unset f1
 fi
+unset f1
 alias rm='gvfs-trash'
 alias real_rm='/bin/rm -i'
 alias cp='cp -i'
