@@ -9,6 +9,6 @@ kernel ->linux;
   time -> openntpd->ntp;
 screenshot->imagemagick->scrot ;
 "password manager"->keepassx;
-wallpaper ->"puzzles map";
+wallpaper ->"svg convert";
 "launch"->"xbindkeys";
 }
