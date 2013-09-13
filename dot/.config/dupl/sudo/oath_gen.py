@@ -7,7 +7,6 @@ import gzip
 from pwd import getpwnam
 import json
 cf1  = '/etc/sudo_bin/oath_gen.json'
-cf1  = 'oath_gen.json'
 PASS = '-'
 
 def main():
