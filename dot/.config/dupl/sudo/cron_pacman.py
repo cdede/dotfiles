@@ -4,6 +4,7 @@ import getpass
 import fileinput
 import time
 import json
+import re
 
 cf1  = '/etc/sudo_bin/cpacman.json'
 
@@ -15,7 +16,7 @@ def check_date(hour_max):
     t2 = ''
     for i in fileinput.input(f1):
         if t1 in i:
-            t2 = i[1:17]
+            t2 = re.search("^\[(.*?)\]",i).group(1)
     if t2 == '':
         return True
     a2=time.time()
