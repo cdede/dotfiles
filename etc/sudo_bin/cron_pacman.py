@@ -6,7 +6,7 @@ import time
 import json
 import re
 
-cf1  = '/etc/sudo_bin/cpacman.json'
+cf1  = '/etc/sudo_etc/cpacman.json'
 
 def check_date(hour_max):
     f1 = '/var/log/pacman.log'

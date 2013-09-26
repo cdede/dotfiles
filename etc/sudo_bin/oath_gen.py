@@ -6,7 +6,7 @@ import subprocess
 import gzip
 from pwd import getpwnam
 import json
-cf1  = '/etc/sudo_bin/oath_gen.json'
+cf1  = '/etc/sudo_etc/oath_gen.json'
 PASS = '-'
 
 def main():
