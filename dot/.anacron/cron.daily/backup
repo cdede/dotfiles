@@ -1,4 +1,5 @@
 #!/bin/bash
+/etc/sudo_bin/cron_pacman.py
 ######
 ~/bin/loc_back --packages  --sign_key  
 back1=~/.priv
