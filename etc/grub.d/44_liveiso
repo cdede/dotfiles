@@ -1,0 +1,22 @@
+#!/bin/sh
+exec tail -n +3 $0
+#{
+# live_uuid 
+#live_label 
+#machine
+#}
+#in  grubenv
+# not to change the 'exec tail' line above.
+
+menuentry "recovery" --users live {
+        load_video
+        set gfxpayload=keep
+        insmod gzio
+        insmod part_gpt
+        insmod ext2
+        search --no-floppy --fs-uuid --set=root $live_uuid
+        set isofile="/live.iso"
+        loopback loop $isofile
+        linux (loop)/arch/boot/$machine/vmlinuz archisolabel=$live_label img_dev=/dev/disk/by-uuid/$live_uuid img_loop=$isofile
+        initrd (loop)/arch/boot/$machine/archiso.img
+}

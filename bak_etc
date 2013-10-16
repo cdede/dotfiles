@@ -6,4 +6,6 @@ cd /etc/
 + /sudo_bin/btfsR.py
 + /sudo_bin/cron_pacman.py
 + /sudo_bin/oath_gen.py
++ /grub.d
++ /grub.d/44_liveiso
 FILES
