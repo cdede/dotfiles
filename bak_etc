@@ -3,7 +3,6 @@ path_etc=~/.dotfiles/etc
 cd /etc/
     rsync -avz --include-from=- --exclude='*' . $path_etc <<FILES
 + /sudo_bin
-+ /sudo_bin/btfsR.py
 + /sudo_bin/cron_pacman.py
 + /sudo_bin/oath_gen.py
 + /grub.d
