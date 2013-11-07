@@ -11,7 +11,7 @@ cf1  = '/etc/sudo_etc/cpacman.json'
 def check_date(hour_max):
     f1 = '/var/log/pacman.log'
     t1 = 'starting full system upgrade'
-    if os.path.getsize(f1) ==0:
+    if not os.path.exists(f1) or os.path.getsize(f1) ==0:
         return True
     t2 = ''
     for i in fileinput.input(f1):
