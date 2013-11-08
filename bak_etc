@@ -5,6 +5,7 @@ cd /etc/
 + /sudo_bin
 + /sudo_bin/cron_pacman.py
 + /sudo_bin/oath_gen.py
++ /sudo_bin/no_pass
 + /grub.d
 + /grub.d/44_liveiso
 FILES

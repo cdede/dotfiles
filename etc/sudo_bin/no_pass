@@ -1,0 +1,38 @@
+#!/usr/bin/python
+import argparse
+import sys,os
+import getpass
+import fileinput
+import time
+import json
+
+cf1  = '/etc/sudo_etc/nopass.json'
+
+def run_cmd(cmd):
+    ret1 = 1
+    if getpass.getuser() == 'root' :
+        ret1 = os.system(cmd)
+    else:
+        print(cmd)
+    return ret1
+
+def main():
+    with open(cf1,'r') as f1:
+        cmd1 = json.load(f1)
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-l','--list', action='store_true',default=False, dest='list',
+                        help='list items -l "" ' )
+    parser.add_argument('cmd', default=None,
+                        help='...(cmd)...', type=str)
+    args = parser.parse_args()
+    if args.list:
+        list(map(print ,cmd1.keys()))
+        sys.exit()
+    try:
+        flag = cmd1[args.cmd]
+        run_cmd(flag)
+    except KeyError as e:
+        print(e)
+
+if __name__ == '__main__':
+    main()
