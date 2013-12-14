@@ -1,3 +1,4 @@
+umask 0027
 f1=~/.config/priv1/zshrc 
 if [ -f $f1 ]; then
   source $f1
