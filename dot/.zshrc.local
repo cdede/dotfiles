@@ -3,6 +3,7 @@ if [ -f $f1 ]; then
   source $f1
 fi
 unset f1
+umask 022
 alias rm='gvfs-trash'
 alias real_rm='/bin/rm -i'
 alias cp='cp -i'
