@@ -1,4 +1,5 @@
 
+umask 022
 if [ -d "$HOME/bin" ] ; then
   echo ":$PATH:" | grep :$HOME/bin: || \
     export PATH="$HOME/bin:$PATH"
