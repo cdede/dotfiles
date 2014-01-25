@@ -21,11 +21,12 @@ def check_date(hour_max):
         return True
     a2=time.time()
     a1 = time.mktime(time.strptime(t2, "%Y-%m-%d %H:%M"))
-    h1 = int((a2-a1)/3600)
+    m0 = int((a2-a1)/60)
+    h1,m1 = divmod(m0,60)
     if int(h1 - hour_max) == 0:
         m0 = int((a2-a1)/60)-hour_max*60
         return [ 'm', m0]
-    return ['h',h1-hour_max]
+    return ['h',h1+m1/60-hour_max]
 
 class RunCmd(object):
     def __init__(self ,cmds,user = 'root'):
