@@ -22,7 +22,10 @@ def check_date(hour_max):
     a2=time.time()
     a1 = time.mktime(time.strptime(t2, "%Y-%m-%d %H:%M"))
     h1 = int((a2-a1)/3600)
-    return h1-hour_max
+    if int(h1 - hour_max) == 0:
+        m0 = int((a2-a1)/60)-hour_max*60
+        return [ 'm', m0]
+    return ['h',h1-hour_max]
 
 class RunCmd(object):
     def __init__(self ,cmds,user = 'root'):
@@ -43,7 +46,7 @@ def main():
         c1 = json.load(f1)
     hour_max = c1['hours']
     flag = ''
-    tmp1  = check_date(hour_max)
+    t0 , tmp1  = check_date(hour_max)
     if tmp1>0:
         n_db = '/tmp/checkup-db-nobody'
         flag = '''su  -s /bin/bash -c checkupdates nobody
@@ -53,7 +56,10 @@ mv /var/cache/pacman/n_pkg/* /var/cache/pacman/pkg
 /usr/bin/pacman -Su
 ''' % ( n_db , n_db)
     else:
-        print('waiting %d hour' % -tmp1)
+        if t0 == 'h':
+            print('waiting %.2f hour' % -tmp1)
+        elif t0 == 'm':
+            print('waiting %d min' % -tmp1)
     if flag != '':
         r1 = RunCmd(flag,'root')
         a1 = r1.run_flag()
