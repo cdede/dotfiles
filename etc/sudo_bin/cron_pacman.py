@@ -9,16 +9,17 @@ import re
 cf1  = '/etc/sudo_etc/cpacman.json'
 
 def check_date(hour_max):
+    b1 = ['b',1]
     f1 = '/var/log/pacman.log'
     t1 = 'starting full system upgrade'
     if not os.path.exists(f1) or os.path.getsize(f1) ==0:
-        return True
+        return b1
     t2 = ''
     for i in fileinput.input(f1):
         if t1 in i:
             t2 = re.search("^\[(.*?)\]",i).group(1)
     if t2 == '':
-        return True
+        return b1
     a2=time.time()
     a1 = time.mktime(time.strptime(t2, "%Y-%m-%d %H:%M"))
     m0 = int((a2-a1)/60)
